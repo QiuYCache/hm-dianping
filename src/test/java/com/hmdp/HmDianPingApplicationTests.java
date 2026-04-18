@@ -10,12 +10,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import static com.hmdp.utils.RedisConstants.CACHE_SHOP_KEY;
+import static com.hmdp.utils.RedisConstants.LOGIN_USER_TTL;
 
 @SpringBootTest
 class HmDianPingApplicationTests {
@@ -57,4 +61,6 @@ class HmDianPingApplicationTests {
         Shop shop =shopService.getById(1L);
         cacheClient.setWithLogicalExpire(CACHE_SHOP_KEY + 1L, shop, 10L, TimeUnit.SECONDS);
     }
+
+
 }
