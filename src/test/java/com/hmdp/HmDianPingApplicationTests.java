@@ -91,7 +91,6 @@ class HmDianPingApplicationTests {
                         new Point(shop.getX(), shop.getY())
                 ));
             }
-
             stringRedisTemplate.opsForGeo().add(key, locations);
         }
     }
